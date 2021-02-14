@@ -1,0 +1,6 @@
+security:
+  users:
+    user:
+      username: user
+      password: user
+      role: USER

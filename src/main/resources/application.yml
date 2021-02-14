@@ -1,0 +1,28 @@
+initial:
+  data:
+    path:
+      customer: /data/customers.csv
+      transaction: /data/transactions.csv
+      accounttype: /data/accountypes.csv
+
+security:
+  users:
+    admin:
+      username: admin
+      password: adminpass
+      role: ADMIN
+    user:
+      username: user
+      password: userpass
+      role: USER
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: db
+
+server:
+  servlet:
+    context-path: /transaction-manager
