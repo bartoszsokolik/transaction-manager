@@ -15,6 +15,7 @@ abstract class BaseDataReader {
     companion object {
         @JvmField
         val PATTERN: Pattern = Pattern.compile(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)")
+        private const val HEADER: Long = 1
     }
 
     fun readLines(path: String): Stream<List<String>> {
@@ -24,7 +25,7 @@ abstract class BaseDataReader {
             .getOrElseThrow { -> ReadDataException("Unable to read data in path: $path") }
 
         return lines.stream()
-            .skip(1)
+            .skip(HEADER)
             .map { line -> line.split(PATTERN) }
             .filter { line -> !line.stream().allMatch(StringUtils::isBlank)}
     }
